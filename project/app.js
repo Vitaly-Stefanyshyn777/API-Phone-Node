@@ -1,7 +1,13 @@
 // Імпорт бібліотеки Express та CORS
+require("dotenv").config(); // Підключаємо dotenv на самому початку
 const express = require("express");
+const morgan = require("morgan");
 const cors = require("cors");
-const app = express();
+
+const app = express(); // Спершу створюємо app
+
+// Підключення логування через Morgan
+app.use(morgan("dev"));
 
 // Підключення CORS для дозволу запитів з інших доменів
 app.use(cors());
@@ -41,3 +47,16 @@ app.use("/api/smartphones", smartphoneRoutes); // Тепер тут є марш�
 app.listen(PORT, () => {
   console.log(`Сервер працює на http://localhost:${PORT}`);
 });
+
+// Обробка неіснуючих маршрутів
+app.use((req, res, next) => {
+  res.status(404).json({ message: "Маршрут не знайдено" });
+});
+
+// Обробка помилок
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: "Внутрішня помилка сервера" });
+});
+
+
