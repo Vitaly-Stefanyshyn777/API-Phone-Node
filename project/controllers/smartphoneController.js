@@ -3,7 +3,7 @@ const products = require("../models/smartphoneModel");
 exports.getSmartphones = (req, res) => {
   const {
     page = 1,
-    limit = 201,
+    limit = 21,
     sortBy,
     order = "asc",
     minPrice,

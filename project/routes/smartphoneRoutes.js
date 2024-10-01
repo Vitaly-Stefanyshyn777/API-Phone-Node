@@ -6,3 +6,4 @@ const { getSmartphones } = require("../controllers/smartphoneController");
 router.get("/", getSmartphones); // Тепер тут базовий шлях
 
 module.exports = router;
+

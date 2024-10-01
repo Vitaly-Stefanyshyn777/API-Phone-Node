@@ -1279,7 +1279,7 @@ const products = [
     "numberOfCameras": 4,
     "brand": "Samsung"
   },
- {
+  {
     "model": "Samsung Galaxy A51",
     "price": 400,
     "description": "Samsung Galaxy A51 — це доступний смартфон з чудовою камерою та стильним дизайном.",
